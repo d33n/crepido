@@ -15,7 +15,6 @@
 }
 
 .board__header {
-  text-align: center;
   .board__picture {
     display: inline-block;
     margin: 0 auto 5px;
@@ -36,7 +35,9 @@
 }
 
 .board__card {
-  margin: 0 0 20px;
+  float: left;
+  width: 300px;
+  margin: 20px 20px 20px 0px;
   background-color: map-get($board-colors, "default");
   overflow: hidden;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
