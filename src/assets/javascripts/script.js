@@ -1,5 +1,5 @@
 (function ($) {
-
+/*
   // Set size.
   setCrepidoSize();
   $(window).on('resize', function() {
@@ -15,6 +15,7 @@
       return parseInt(boards.length * width) + parseInt((boards.length - 1) * gutter) + 40;
     });
   }
+    */
 
   // Task status.
   $('.status').each(function() {
