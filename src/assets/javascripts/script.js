@@ -20,6 +20,7 @@
   $('.status').each(function() {
     if ($(this).val() == 1) {
       $(this).parent('li').addClass('done');
+      $(this)[0].checked = "true";
     }
   });
 
@@ -63,6 +64,6 @@
   // Collapsible boards
   $('.board__card--collapsible h1').click(function(e) {
     e.preventDefault();
-    $(this).parent('.board__card--collapsible').toggleClass('open');
+    $(this).parent('.board__card--collapsible').toggleClass('closed');
   });
 })(jQuery)
