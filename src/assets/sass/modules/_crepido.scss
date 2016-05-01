@@ -32,6 +32,9 @@
   }
 }
 
+.closed ul {
+  display: none;
+}
 .board__card {
   display: inline-block;
   vertical-align: top;

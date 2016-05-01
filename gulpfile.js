@@ -161,7 +161,7 @@ function buildBoards() {
 function addCheckboxes(string) {
   return string.replace(new RegExp("\\[([\\s|x])\\]", "gi"), function($0, $1) {
     var value = ($1 == 'x') ? 1 : 0;
-    return '<input class="status hidden" type="checkbox" value="' + value + '"/>';
+    return '<input class="status" type="checkbox" value="' + value + '"/>';
   });
 }
 
