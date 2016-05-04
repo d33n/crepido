@@ -1,5 +1,6 @@
 ---
 name: Ivan Smirnov
+project_name: Test
 picture: https://ivansmirnov.name/img/profile.jpg
 ---
 

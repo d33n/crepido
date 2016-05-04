@@ -30,32 +30,26 @@
   // Build progress bar.
   $('.board').each(function() {
     // Build projects array.
-    var projects = [];
     var total = 0;
+    var totaldone = 0;
+
     $(this).find('.timer').each(function() {
       var value = $(this).data().value;
+      if ($(this).parent('li').hasClass('done')) {
+       totaldone += value;
+      };
       total += value;
-      var project = $(this).parent('li').find('.project').data();
-      if (typeof(projects[project.name]) !== 'undefined') {
-        projects[project.name].value += value;
-      }
-      else {
-        projects[project.name] = {
-          project: project,
-          value: value
-        };
-      }
-    });
 
-    // Build progress bar.
-    var progressBar = $(this).find('.progress');
-    for (var projectName in projects) {
-      var project = projects[projectName];
-      var progress = $('<div class="progress-bar" data-placement="top" data-toggle="tooltip" data-title="' + project.project.name + '"></div>');
-      progress.html(project.value + 'h');
-      progress.addClass('progress-bar--' + project.project.name);
-      progress.width((project.value/total * 100) + '%');
-      progressBar.append(progress);
+    });
+    
+    if (total > 0) {
+      $(this).find('.board__header').append('<div class=\"progress\"></div>');
+       
+      var progress = $('<div class="progress-bar" data-placement="top" data-toggle="tooltip" data-title=""></div>');
+      progress.html(Math.floor(totaldone/total * 100) + '%');
+      progress.width((totaldone/total * 100) + '%');
+      
+      $(this).find('.board__header .progress').append(progress);
     }
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -65,5 +59,16 @@
   $('.board__card--collapsible h1').click(function(e) {
     e.preventDefault();
     $(this).parent('.board__card--collapsible').toggleClass('closed');
+  });
+
+  $('.label').click(function(e) {
+    e.preventDefault();
+    var filterLabel = ($(this).attr('data-name'));
+    
+    $('.board').find('.label').each(function(){
+      if ($(this).attr('data-name') !== filterLabel) {
+        $(this).parent('li').toggleClass('hidden');
+      }
+    });
   });
 })(jQuery)
